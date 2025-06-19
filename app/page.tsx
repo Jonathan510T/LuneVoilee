@@ -9,12 +9,12 @@ import Image from 'next/image';
 export default function HomePage() {
   // Images located in /public/images/hero
   const heroImages = [
-    '/images/hero/DSC_1965.JPG',
-    '/images/hero/DSC_2022.JPG',
-    '/images/hero/DSC_2025.JPG',
-    '/images/hero/DSC_2029.JPG',
-    '/images/hero/DSC_2034.JPG',
-    '/images/hero/DSC_2052.JPG',
+    'images/hero/DSC_1965.JPG',
+    'images/hero/DSC_2022.JPG',
+    'images/hero/DSC_2025.JPG',
+    'images/hero/DSC_2029.JPG',
+    'images/hero/DSC_2034.JPG',
+    'images/hero/DSC_2052.JPG',
   ];
 
   const [current, setCurrent] = useState(0);

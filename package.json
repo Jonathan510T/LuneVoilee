@@ -2,27 +2,32 @@
   "name": "shopping",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jonathan510t.github.io/LuneVoilee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jonathan510T/LuneVoilee.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "deploy": "npm run build && npx shx touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@stripe/react-stripe-js": "^3.7.0",
-    "@stripe/stripe-js": "^7.3.1",
     "boxicons": "^2.1.4",
     "mongoose": "^8.15.2",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "stripe": "^18.2.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "gh-pages": "^5.0.0",
+    "shx": "^0.4.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

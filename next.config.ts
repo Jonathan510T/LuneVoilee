@@ -13,7 +13,6 @@ const nextConfig = {
 
 
   basePath: prefix,                    // e.g. "/LuneVoilee"
-  assetPrefix: prefix ? `${prefix}/` : '',
 
 
   reactStrictMode: true,

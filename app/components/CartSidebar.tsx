@@ -51,7 +51,7 @@ export default function CartSidebar() {
               >
                 <Image
                   
-                  src={`/${item.image}`}   // <-- prepend the single “/” here
+                  src={item.image}  // <-- prepend the single “/” here
                   alt={item.name}
                   width={80}
                   height={80}

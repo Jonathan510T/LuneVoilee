@@ -18,7 +18,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const { addItem, openCart } = useCart()
 
   const [color, setColor] = useState<Color>('green')
-  const [size, setSize]   = useState<string>('Medium')   // ★ 1. new state
+  const [size,  setSize]  = useState<string>('Medium')
 
   const handleAdd = () => {
     addItem({
@@ -28,7 +28,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       image:    product.image,
       quantity: 1,
       color,
-      size,                                  // ★ 2. include size
+      size,
     })
     openCart()
   }
@@ -37,15 +37,16 @@ export default function ProductDetailClient({ product }: { product: Product }) {
     <>
       {/* image */}
       <div className="md:flex-1 flex justify-center mb-8 md:mb-0">
-        <Image
-          
-          src={`/${product.image}`}   // <-- prepend the single “/” here
-          alt={product.name}
-          width={600}
-          height={800}
-          className="object-cover rounded"
-        />
-      </div>
+  {/* product image */}
+  <Image
+    src={`/${product.image}`}   // prepended “/”
+    alt={product.name}
+    width={600}
+    height={800}
+    className="object-cover rounded"
+  />
+</div>
+
 
       {/* details */}
       <div className="md:flex-1">
@@ -86,13 +87,13 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             Size
           </h3>
           <select
-            value={size}                         /* ★ 3a. bind value */
-            onChange={e => setSize(e.target.value)} /* ★ 3b. update state */
+            value={size}
+            onChange={e => setSize(e.target.value)}
             className="w-full bg-transparent border border-gray-600 p-2 text-white"
           >
-            <option value="Small"  className="text-black">Small</option>
-            <option value="Medium" className="text-black">Medium</option>
-            <option value="Large"  className="text-black">Large</option>
+            <option value="Small"   className="text-black">Small</option>
+            <option value="Medium"  className="text-black">Medium</option>
+            <option value="Large"   className="text-black">Large</option>
             <option value="X-Large" className="text-black">X-Large</option>
             <option value="XX-Large" className="text-black">XX-Large</option>
           </select>

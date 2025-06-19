@@ -3,32 +3,29 @@ export type Product = {
   name: string
   price: number
   description: string
-  image: string
+  image: string          // always *without* the leading “/”
   category: string
 }
 
-// New Category type definition
-export type Category = {
-  name: string
-  slug: string
-  color: string
-}
+export type Category = { name: string; slug: string; color: string }
 
 export const productsList: Product[] = [
-  // Hoodies
+  /* Hoodies -------------------------------------------------------------- */
   {
     id: 'product001',
     name: 'Lune Voilee Hoodie',
     price: 80,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: 'images/IMG_6502.JPG',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
+    image: 'images/IMG_6502.JPG',   // ← uppercase JPG
     category: 'hoodies',
   },
   {
     id: 'product002',
     name: 'Lune Voilee Hoodie',
     price: 80,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
     image: 'images/IMG_6502.JPG',
     category: 'hoodies',
   },
@@ -36,17 +33,19 @@ export const productsList: Product[] = [
     id: 'product003',
     name: 'Lune Voilee Hoodie',
     price: 80,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
     image: 'images/IMG_6502.JPG',
     category: 'hoodies',
   },
 
-  //shirts
+  /* Shirts --------------------------------------------------------------- */
   {
     id: 'product004',
     name: 'Lune Voilee Shirt',
     price: 40,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
     image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
@@ -54,7 +53,8 @@ export const productsList: Product[] = [
     id: 'product005',
     name: 'Lune Voilee Shirt',
     price: 40,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
     image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
@@ -62,27 +62,17 @@ export const productsList: Product[] = [
     id: 'product006',
     name: 'Lune Voilee Shirt',
     price: 40,
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
     image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
 ]
 
-// Add categories array
-export const categories: Category[] = [
-  {
-    name: 'Hoodies',
-    slug: 'hoodies',
-    color: '#FFFFFF',
-  },
-  {
-    name: 'Shirts',
-    slug: 'shirts',
-    color: '#FFFFFF',
-  },
-  {
-    name: 'Pants',
-    slug: 'pants',
-    color: '#FFFFFF',
-  },
-]
+
+ export const categories: Category[] = [
+ { name: 'Best Sellers', slug: 'best-sellers', color: '#FFFFFF' },
+   { name: 'Hoodies',      slug: 'hoodies',      color: '#FFFFFF' },
+   { name: 'Shirts',       slug: 'shirts',       color: '#FFFFFF' },
+   { name: 'Pants',        slug: 'pants',        color: '#FFFFFF' },
+ ]

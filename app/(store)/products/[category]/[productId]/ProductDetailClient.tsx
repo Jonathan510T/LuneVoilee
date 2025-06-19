@@ -5,7 +5,7 @@ import { useState }     from 'react'
 import Image            from 'next/image'
 import { useCart }      from '@/app/context/CartContext'
 import type { Product } from '@/app/data/products'
-
+import { imagePath } from '@/lib/imagePath';
 
 type Color = 'green' | 'white' | 'black'
 
@@ -40,7 +40,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       <div className="md:flex-1 flex justify-center mb-8 md:mb-0">
         {/* product image */}
         <Image
-          src={product.image}   // prepended “/”
+          src={imagePath(product.image)}   // prepended “/”
           alt={product.name}
           width={600}
           height={800}

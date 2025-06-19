@@ -50,7 +50,8 @@ export default function CartSidebar() {
                 className="flex space-x-4"
               >
                 <Image
-                  src={item.image}
+                  
+                  src={`/${item.image}`}   // <-- prepend the single “/” here
                   alt={item.name}
                   width={80}
                   height={80}

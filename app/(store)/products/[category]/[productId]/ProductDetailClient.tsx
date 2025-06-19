@@ -38,7 +38,8 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       {/* image */}
       <div className="md:flex-1 flex justify-center mb-8 md:mb-0">
         <Image
-          src={product.image}
+          
+          src={`/${product.image}`}   // <-- prepend the single “/” here
           alt={product.name}
           width={600}
           height={800}

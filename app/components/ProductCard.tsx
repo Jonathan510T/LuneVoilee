@@ -18,7 +18,8 @@ export default function ProductCard({
       {/* Image still links to detail page */}
       <Link href={`/products/${product.category}/${product.id}`}>
         <Image
-          src={product.image}
+          
+          src={`/${product.image}`}   // <-- prepend the single “/” here
           alt={product.name}
           fill
           className="object-cover scale-100 transition-transform duration-400 ease-in-out group-hover:scale-110"

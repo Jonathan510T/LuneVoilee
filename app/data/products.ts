@@ -21,7 +21,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Hoodie',
     price: 80,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'hoodies',
   },
   {
@@ -29,7 +29,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Hoodie',
     price: 80,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'hoodies',
   },
   {
@@ -37,7 +37,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Hoodie',
     price: 80,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'hoodies',
   },
 
@@ -47,7 +47,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Shirt',
     price: 40,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
   {
@@ -55,7 +55,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Shirt',
     price: 40,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
   {
@@ -63,7 +63,7 @@ export const productsList: Product[] = [
     name: 'Lune Voilee Shirt',
     price: 40,
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium, iure id molestiae nobis repellendus, placeat ut at nulla voluptas quasi quisquam!',
-    image: '/images/IMG_6502.JPG',
+    image: 'images/IMG_6502.JPG',
     category: 'shirts',
   },
 ]

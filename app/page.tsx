@@ -69,7 +69,7 @@ export default function HomePage() {
           {/* Best Sellers */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6502.jpg"
+              src="images/IMG_6502.jpg"
               alt="Best Sellers"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -90,7 +90,7 @@ export default function HomePage() {
           {/* Hoodies */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6503.jpg"
+              src="images/IMG_6503.jpg"
               alt="Hoodies"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -111,7 +111,7 @@ export default function HomePage() {
           {/* Shirts */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6504.jpg"
+              src="images/IMG_6504.jpg"
               alt="Shirts"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

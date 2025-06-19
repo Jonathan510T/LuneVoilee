@@ -17,7 +17,7 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: 'images/IMG_6502.JPG',   // ← uppercase JPG
+    image: 'images/IMG_6502.jpg',   // ← uppercase JPG
     category: 'hoodies',
   },
   {
@@ -26,7 +26,7 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: 'images/IMG_6502.JPG',
+    image: 'images/IMG_6502.jpg',
     category: 'hoodies',
   },
   {
@@ -35,7 +35,7 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: 'images/IMG_6502.JPG',
+    image: 'images/IMG_6502.jpg',
     category: 'hoodies',
   },
 
@@ -46,7 +46,7 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: 'images/IMG_6502.JPG',
+    image: 'images/IMG_6502.jpg',
     category: 'shirts',
   },
   {
@@ -55,7 +55,7 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: 'images/IMG_6502.JPG',
+    image: 'images/IMG_6502.jpg',
     category: 'shirts',
   },
   {
@@ -64,7 +64,7 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: 'images/IMG_6502.JPG',
+    image: 'images/IMG_6502.jpg',
     category: 'shirts',
   },
 ]

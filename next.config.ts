@@ -1,30 +1,27 @@
 /** @type {import('next').NextConfig} */
 
-// ———— customise this if the repo name changes ————
+/* ─── customise this if the repo name changes ───────────────────────── */
 const repoName = 'LuneVoilee';
 
-// Helpers
-const isProd = process.env.NODE_ENV === 'production';
-const prefix  = isProd ? `/${repoName}` : '';
+/* Helpers */
+const isProd  = process.env.NODE_ENV === 'production';
+const prefix  = isProd ? `/${repoName}` : '';        // → "/LuneVoilee" in prod, "" in dev
 
 const nextConfig = {
-
+ 
   output: 'export',
 
 
-  basePath: prefix,          // e.g. "/LuneVoilee" in production
-  assetPrefix: prefix + '/', // add trailing slash or "" in dev
+  basePath: prefix,                    // e.g. "/LuneVoilee"
+  assetPrefix: prefix ? `${prefix}/` : '',
+
 
   reactStrictMode: true,
 
- 
-  //     export mode can’t run the sharp optimizer at runtime.
-  images: {
-    unoptimized: true,
-  },
 
-  //     experimental, plugin, or future settings.
-  // experimental: {},
+  images: { unoptimized: true },
+
+
 };
 
 module.exports = nextConfig;

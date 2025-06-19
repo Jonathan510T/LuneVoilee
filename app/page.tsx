@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import { imagePath } from '@/lib/imagePath';
 
 export default function HomePage() {
   // Images located in /public/images/hero
@@ -69,7 +70,7 @@ export default function HomePage() {
           {/* Best Sellers */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6502.JPG"
+              src={imagePath('images/IMG_6502.JPG')}
               alt="Best Sellers"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -90,7 +91,7 @@ export default function HomePage() {
           {/* Hoodies */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6503.JPG"
+              src={imagePath('images/IMG_6503.JPG')}
               alt="Hoodies"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -111,7 +112,7 @@ export default function HomePage() {
           {/* Shirts */}
           <div className="relative overflow-hidden group h-[38.4rem]">
             <Image
-              src="/images/IMG_6504.JPG"
+              src={imagePath('images/IMG_6504.JPG')}
               alt="Shirts"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"

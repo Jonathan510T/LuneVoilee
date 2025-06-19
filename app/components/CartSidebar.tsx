@@ -4,6 +4,7 @@
 import React, { useEffect } from 'react'
 import Image               from 'next/image'
 import { useCart }         from '@/app/context/CartContext'
+import { imagePath } from '@/lib/imagePath';
 
 export default function CartSidebar() {
   const { isOpen, closeCart, items, updateQty, removeItem, total } = useCart()
@@ -51,7 +52,7 @@ export default function CartSidebar() {
               >
                 <Image
                   
-                  src={item.image}  // <-- prepend the single “/” here
+                  src={imagePath(item.image)}  // <-- prepend the single “/” here
                   alt={item.name}
                   width={80}
                   height={80}

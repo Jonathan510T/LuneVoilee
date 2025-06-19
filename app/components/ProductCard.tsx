@@ -3,7 +3,7 @@
 import Image  from 'next/image'
 import Link   from 'next/link'
 import type { Product } from '@/app/data/products'
-
+import { imagePath } from '@/lib/imagePath';
 type Props = { product: Product; categoryColor: string }
 
 export default function ProductCard({ product, categoryColor }: Props) {
@@ -11,7 +11,7 @@ export default function ProductCard({ product, categoryColor }: Props) {
     <div className="group block w-full h-[80vh] relative overflow-hidden bg-black">
       <Link href={`/products/${product.category}/${product.id}`}>
         <Image
-          src={`/${product.image}`}     // ← prepend ONE “/”
+          src={imagePath(product.image)}    // ← prepend ONE “/”
           alt={product.name}
           fill
           className="object-cover transition-transform duration-400 ease-in-out group-hover:scale-110"

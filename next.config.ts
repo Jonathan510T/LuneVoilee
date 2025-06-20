@@ -6,7 +6,8 @@ const prefix = isProd ? `/${repo}` : '';
 module.exports = {
   output:  'export',
   basePath: prefix,
-  // 👇 make it available in the browser
-  env:     { NEXT_PUBLIC_BASE_PATH: prefix },
+  // next.config.ts
+  env: { NEXT_PUBLIC_BASE_PATH: '/LuneVoilee' },
+
   images:  { unoptimized: true },
 };

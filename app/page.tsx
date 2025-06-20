@@ -24,7 +24,8 @@ async function getGalleryImages() {
    Page
    ------------------------------------------------------------ */
 export default async function HomePage() {
-  const gallery = await getGalleryImages();                   // e.g. 25+ images
+  
+  const gallery = await getGalleryImages();                // e.g. 25+ images
 
   return (
     <div className="min-h-screen flex flex-col">

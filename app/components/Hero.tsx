@@ -2,15 +2,16 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link  from 'next/link';
+import { imagePath } from '@/lib/imagePath';
 
 export default function Hero() {
   const heroImages = [
-    '/images/hero/DSC_1965.JPG',
-    '/images/hero/DSC_2022.JPG',
-    '/images/hero/DSC_2025.JPG',
-    '/images/hero/DSC_2029.JPG',
-    '/images/hero/DSC_2034.JPG',
-    '/images/hero/DSC_2052.JPG',
+    'images/hero/DSC_1965.JPG',
+    'images/hero/DSC_2022.JPG',
+    'images/hero/DSC_2025.JPG',
+    'images/hero/DSC_2029.JPG',
+    'images/hero/DSC_2034.JPG',
+    'images/hero/DSC_2052.JPG',
   ];
   const [current, setCurrent] = useState(0);
   useEffect(() => {

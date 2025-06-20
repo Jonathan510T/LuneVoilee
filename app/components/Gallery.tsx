@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import Image        from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'; // npm i lucide-react
+import { imagePath } from '@/lib/imagePath';
 
 type Props = { images: string[] };
 
@@ -26,7 +27,7 @@ export default function Gallery({ images }: Props) {
             className="relative w-full aspect-square overflow-hidden"
           >
             <Image
-              src={src}
+              src={imagePath(src)}
               alt=""
               fill
               sizes="(min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"

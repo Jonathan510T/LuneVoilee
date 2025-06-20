@@ -1,4 +1,3 @@
-export function imagePath(src: string) {
-  const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
-  return `${base}${src.startsWith('/') ? '' : '/'}${src.replace(/^\/+/, '')}`;
-}
+/** Turn "images/IMG_6502.jpg" → "/LuneVoilee/images/IMG_6502.jpg" */
+export const imagePath = (src: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH}${src.startsWith('/') ? '' : '/'}${src}`;

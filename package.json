@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "boxicons": "^2.1.4",
+    "lucide-react": "^0.518.0",
     "mongoose": "^8.15.2",
     "next": "15.3.2",
     "react": "^19.0.0",

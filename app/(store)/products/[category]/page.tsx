@@ -39,7 +39,6 @@ export default async function CategoryPage({ params }: PageProps) {
           </Link>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

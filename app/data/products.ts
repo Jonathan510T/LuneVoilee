@@ -3,7 +3,8 @@ export type Product = {
   name: string
   price: number
   description: string
-  image: string          // always *without* the leading “/”
+  image: string    
+  imageback: string    
   category: string
 }
 
@@ -17,7 +18,8 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: '/images/IMG_6502.jpg',   // ← uppercase JPG
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'hoodies',
   },
   {
@@ -26,7 +28,8 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: '/images/IMG_6502.jpg',
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'hoodies',
   },
   {
@@ -35,7 +38,8 @@ export const productsList: Product[] = [
     price: 80,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente? Praesentium laboriosam eligendi, accusantium…',
-    image: '/images/IMG_6502.jpg',
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'hoodies',
   },
 
@@ -46,7 +50,8 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: '/images/IMG_6502.jpg',
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'shirts',
   },
   {
@@ -55,7 +60,8 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: '/images/IMG_6502.jpg',
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'shirts',
   },
   {
@@ -64,7 +70,8 @@ export const productsList: Product[] = [
     price: 40,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dignissimos repellendus molestiae mollitia sapiente?...',
-    image: '/images/IMG_6502.jpg',
+    image: '/images/DSC_2069.jpg',
+    imageback: '/images/DSC_2073.jpg',   
     category: 'shirts',
   },
 ]

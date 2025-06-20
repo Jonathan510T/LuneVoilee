@@ -1,59 +1,86 @@
 // app/(store)/products/[category]/[productId]/ProductDetailClient.tsx
-'use client'
+'use client';
 
-import { useState }     from 'react'
-import Image            from 'next/image'
-import { useCart }      from '@/app/context/CartContext'
-import type { Product } from '@/app/data/products'
+import { useState } from 'react';
+import Image        from 'next/image';
+import { useCart }  from '@/app/context/CartContext';
+import type { Product } from '@/app/data/products';
 import { imagePath } from '@/lib/imagePath';
 
-type Color = 'green' | 'white' | 'black'
+type Color = 'green' | 'white' | 'black';
 
-const bgClassMap: Record<Color, string> = {
-  green: 'bg-green-500',
-  white: 'bg-white',
-  black: 'bg-black',
-}
+const bgClass: Record<Color, string> = {
+  green : 'bg-green-500',
+  white : 'bg-white',
+  black : 'bg-black',
+};
 
 export default function ProductDetailClient({ product }: { product: Product }) {
-  const { addItem, openCart } = useCart()
+  const { addItem, openCart } = useCart();
 
-  const [color, setColor] = useState<Color>('green')
-  const [size,  setSize]  = useState<string>('Medium')
+  const [color, setColor]   = useState<Color>('green');
+  const [size,  setSize]    = useState('Medium');
+  const [active, setActive] = useState(product.image);  // ⭐ current photo
+
+  const thumbs = [product.image, product.imageback].filter(Boolean);
 
   const handleAdd = () => {
     addItem({
       id:       product.id,
       name:     product.name,
       price:    product.price,
-      image:    product.image,
+      image:    active,          // add the viewed side to cart
       quantity: 1,
       color,
       size,
-    })
-    openCart()
-  }
+    });
+    openCart();
+  };
 
   return (
     <>
-      {/* image */}
-      <div className="md:flex-1 flex justify-center mb-8 md:mb-0">
-        {/* product image */}
-        <Image
-          src={imagePath(product.image)}   // prepended “/”
-          alt={product.name}
-          width={600}
-          height={800}
-          className="object-cover rounded"
-        />
+      {/* image column ---------------------------------------------------- */}
+      <div className="md:flex-1 flex flex-col items-center mb-8 md:mb-0">
+        {/* ratio box keeps the image from stretching too tall */}
+        <div className="relative w-full max-w-[600px] max-h-[650px] aspect-[3/4]">
+          <Image
+            src={imagePath(active)}
+            alt={product.name}
+            fill
+            sizes="(min-width:768px) 50vw, 100vw"
+            className="object-cover rounded"
+          />
+        </div>
+
+        {/* two thumbnails */}
+        {thumbs.length > 1 && (
+          <div className="flex space-x-4 mt-6">
+            {thumbs.map(src => (
+              <button
+                key={src}
+                onClick={() => setActive(src)}
+                className={`
+                  relative w-20 h-20 rounded overflow-hidden
+                  ring-2 transition
+                  ${active === src ? 'ring-yellow-400' : 'ring-transparent'}
+                `}
+              >
+                <Image
+                  src={imagePath(src)}
+                  alt="thumbnail"
+                  fill
+                  sizes="80px"
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-
-
-      {/* details */}
+      
+      {/* details column -------------------------------------------------- */}
       <div className="md:flex-1">
-        <h1 className="text-3xl font-semibold uppercase mb-2">
-          {product.name}
-        </h1>
+        <h1 className="text-3xl font-semibold uppercase mb-2">{product.name}</h1>
         <p className="text-2xl mb-6">${product.price.toFixed(2)}</p>
         <hr className="border-gray-700 mb-6" />
 
@@ -66,15 +93,13 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             {(['green', 'white', 'black'] as Color[]).map(c => (
               <button
                 key={c}
-                onClick={() => setColor(c)}
                 aria-label={c}
+                onClick={() => setColor(c)}
                 className={`
                   h-8 w-8 rounded-full border-2
-                  ${bgClassMap[c]}
+                  ${bgClass[c]}
                   ${color === c
-                    ? c === 'white'
-                      ? 'border-black'
-                      : 'border-white'
+                    ? c === 'white' ? 'border-black' : 'border-white'
                     : 'border-gray-600'}
                 `}
               />
@@ -84,19 +109,15 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
         {/* size selector */}
         <div className="mb-8">
-          <h3 className="uppercase text-sm font-medium mb-2 text-white">
-            Size
-          </h3>
+          <h3 className="uppercase text-sm font-medium mb-2 text-white">Size</h3>
           <select
             value={size}
             onChange={e => setSize(e.target.value)}
             className="w-full bg-transparent border border-gray-600 p-2 text-white"
           >
-            <option value="Small"   className="text-black">Small</option>
-            <option value="Medium"  className="text-black">Medium</option>
-            <option value="Large"   className="text-black">Large</option>
-            <option value="X-Large" className="text-black">X-Large</option>
-            <option value="XX-Large" className="text-black">XX-Large</option>
+            {['Small','Medium','Large','X-Large','XX-Large'].map(s => (
+              <option key={s} value={s} className="text-black">{s}</option>
+            ))}
           </select>
         </div>
 
@@ -128,5 +149,5 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </div>
     </>
-  )
+  );
 }

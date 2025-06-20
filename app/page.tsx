@@ -1,138 +1,101 @@
-'use client';
+// app/page.tsx  – SERVER component
+import fs   from 'fs/promises';
+import path from 'path';
+import Image      from 'next/image';
+import Link       from 'next/link';
 
-import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import Link from 'next/link';
-import Image from 'next/image';
-import { imagePath } from '@/lib/imagePath';
+import Footer     from './components/Footer';
+import Hero       from './components/Hero';
+import Gallery    from './components/Gallery';
 
-export default function HomePage() {
-  // Images located in /public/images/hero
-  const heroImages = [
-    'images/hero/DSC_1965.JPG',
-    'images/hero/DSC_2022.JPG',
-    'images/hero/DSC_2025.JPG',
-    'images/hero/DSC_2029.JPG',
-    'images/hero/DSC_2034.JPG',
-    'images/hero/DSC_2052.JPG',
-  ];
+/* ------------------------------------------------------------
+   Build a list of gallery images from /public/images/gallery/
+   ------------------------------------------------------------ */
+async function getGalleryImages() {
+  const dir   = path.join(process.cwd(), 'public', 'images', 'gallery');
+  const files = await fs.readdir(dir);                        // ["DSC_1966.JPG", …]
+  return files
+    .filter(f => /\.(jpe?g)$/i.test(f))                       // only jpg / jpeg
+    .map(f => `/images/gallery/${f}`);                        // browser path
+}
 
-  const [current, setCurrent] = useState(0);
-
-  // Cycle through images every 5 s
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent((c) => (c + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, [heroImages.length]);
+/* ------------------------------------------------------------
+   Page
+   ------------------------------------------------------------ */
+export default async function HomePage() {
+  const gallery = await getGalleryImages();                   // e.g. 25+ images
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      <Hero />
 
-      {/* Hero Section with Slideshow Background */}
-      <section className="relative w-full h-screen overflow-hidden">
-        {heroImages.map((src, i) => (
-          <Image
-            key={src}
-            src={src}
-            alt="Hero slide"
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className={`absolute inset-0 object-cover transition-opacity duration-1000 ease-in-out ${i === current ? 'opacity-100' : 'opacity-0'}`}
+      {/* ------------- Category tiles ------------------------- */}
+      <section className="py-16 bg-black">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <Tile
+            href="/products/best-sellers"
+            title="Best Sellers"
+            src="/images/IMG_6502.jpg"
           />
-        ))}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+          <Tile
+            href="/products/hoodies"
+            title="Hoodies"
+            src="/images/IMG_6503.jpg"
+          />
 
-        {/* Copy */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            Brand New Collection
-          </h1>
-          <p className="text-white text-xl sm:text-2xl mb-8">Spring-Summer 2026</p>
-          <Link
-            href="/products"
-            className="bg-black text-white text-lg px-6 py-3 rounded-md transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
-          >
-            Shop Now
-          </Link>
+          <Tile
+            href="/products/shirts"
+            title="Shirts"
+            src="/images/IMG_6504.jpg"
+          />
         </div>
       </section>
 
-      {/* Category Tiles Section */}
-      <section className="py-16 bg-black">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Best Sellers */}
-          <div className="relative overflow-hidden group h-[38.4rem]">
-            <Image
-              src="images/IMG_6502.jpg"
-              alt="Best Sellers"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-            <div className="absolute bottom-6 left-6">
-              <h3 className="text-white text-3xl font-semibold mb-4">Best Sellers</h3>
-              <Link
-                href="/products/best-sellers"
-                className="bg-black text-white text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
-              >
-                View Products
-              </Link>
-            </div>
-          </div>
+      {/* ------------- Gallery section ------------------------ */}
+      <section className="py-16 bg-neutral-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-black">
+            Follow us on Instagram&nbsp;
+            <span className="text-yellow-600">@LuneVoilee</span>
+          </h2>
 
-          {/* Hoodies */}
-          <div className="relative overflow-hidden group h-[38.4rem]">
-            <Image
-              src="images/IMG_6503.jpg"
-              alt="Hoodies"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-            <div className="absolute bottom-6 left-6">
-              <h3 className="text-white text-3xl font-semibold mb-4">Hoodies</h3>
-              <Link
-                href="/products/hoodies"
-                className="bg-black text-white text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
-              >
-                View Products
-              </Link>
-            </div>
-          </div>
-
-          {/* Shirts */}
-          <div className="relative overflow-hidden group h-[38.4rem]">
-            <Image
-              src="images/IMG_6504.jpg"
-              alt="Shirts"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-            <div className="absolute bottom-6 left-6">
-              <h3 className="text-white text-3xl font-semibold mb-4">Shirts</h3>
-              <Link
-                href="/products/shirts"
-                className="bg-black text-white text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
-              >
-                View Products
-              </Link>
-            </div>
-          </div>
+          {/* client component with full-screen light-box */}
+          <Gallery images={gallery} />
         </div>
       </section>
 
       <Footer />
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------
+   Re-usable tile for Best Sellers / Hoodies / Shirts
+   ------------------------------------------------------------ */
+function Tile({ href, title, src }: { href: string; title: string; src: string }) {
+  return (
+    <div className="relative overflow-hidden group h-[38.4rem]">
+      <Image
+        src={src}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+      <div className="absolute bottom-6 left-6">
+        <h3 className="text-white text-3xl font-semibold mb-4">{title}</h3>
+        <Link
+          href={href}
+          className="bg-black text-white text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
+        >
+          View Products
+        </Link>
+      </div>
     </div>
   );
 }

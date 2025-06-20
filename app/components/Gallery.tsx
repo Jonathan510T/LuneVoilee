@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Image        from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'; // npm i lucide-react
 import { imagePath } from '@/lib/imagePath';
-
 type Props = { images: string[] };
 
 export default function Gallery({ images }: Props) {
@@ -27,7 +26,7 @@ export default function Gallery({ images }: Props) {
             className="relative w-full aspect-square overflow-hidden"
           >
             <Image
-              src={imagePath(src)}
+              src={imagePath(images[index])}
               alt=""
               fill
               sizes="(min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
@@ -41,7 +40,7 @@ export default function Gallery({ images }: Props) {
       {open && (
         <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <Image
-            src={images[index]}
+            src={imagePath(images[index])}
             alt=""
             fill
             priority

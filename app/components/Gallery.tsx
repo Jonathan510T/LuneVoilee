@@ -26,7 +26,7 @@ export default function Gallery({ images }: Props) {
             className="relative w-full aspect-square overflow-hidden"
           >
             <Image
-              src={imagePath(images[index])}
+              src={imagePath(src)}
               alt=""
               fill
               sizes="(min-width:1024px) 20vw, (min-width:768px) 25vw, 50vw"
@@ -40,7 +40,7 @@ export default function Gallery({ images }: Props) {
       {open && (
         <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <Image
-            src={imagePath(images[index])}
+            src={images[index]}
             alt=""
             fill
             priority

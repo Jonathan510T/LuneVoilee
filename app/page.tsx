@@ -39,19 +39,19 @@ export default async function HomePage() {
           <Tile
             href="/products/best-sellers"
             title="Best Sellers"
-            src="/images/IMG_6502.jpg"
+            src="images/hero/DSC_2029.JPG"
           />
 
           <Tile
             href="/products/hoodies"
             title="Hoodies"
-            src="/images/IMG_6503.jpg"
+            src="images/gallery/DSC_1998.JPG"
           />
 
           <Tile
             href="/products/shirts"
             title="Shirts"
-            src="/images/IMG_6504.jpg"
+            src="images/hero/DSC_1965.JPG"
           />
         </div>
       </section>

@@ -40,7 +40,7 @@ export default function Gallery({ images }: Props) {
       {open && (
         <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <Image
-            src={images[index]}
+            src={imagePath(images[index])}   
             alt=""
             fill
             priority

@@ -1,3 +1,8 @@
-/** Turn "images/IMG_6502.jpg" → "/LuneVoilee/images/IMG_6502.jpg" */
-export const imagePath = (src: string) =>
-  `${process.env.NEXT_PUBLIC_BASE_PATH}${src.startsWith('/') ? '' : '/'}${src}`;
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''; // '' in dev, '/LuneVoilee' in prod
+
+export function imagePath(src: string): string {
+  const cleaned = src.startsWith('/') ? src : `/${src}`;
+  return BASE && !cleaned.startsWith(`${BASE}/`)
+    ? `${BASE}${cleaned}`
+    : cleaned;
+}

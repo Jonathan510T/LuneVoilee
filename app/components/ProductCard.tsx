@@ -12,7 +12,7 @@ export default function ProductCard({ product, categoryColor }: Props) {
     <div className="group block w-full h-[80vh] relative overflow-hidden bg-black">
       <Link href={`/products/${product.category}/${product.id}`}>
         <Image
-          src={imagePath(product.image)}    // ← prepend ONE “/”
+          src={product.image}    // ← prepend ONE “/”
           alt={product.name}
           fill
           className="object-cover transition-transform duration-400 ease-in-out group-hover:scale-110"

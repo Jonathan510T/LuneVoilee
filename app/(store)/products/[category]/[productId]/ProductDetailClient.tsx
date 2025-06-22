@@ -6,6 +6,7 @@ import Image        from 'next/image';
 import { useCart }  from '@/app/context/CartContext';
 import type { Product } from '@/app/data/products';
 import { imagePath } from '@/lib/imagePath';
+import { BrandColors } from '@/app/data/products';
 
 type Color = 'green' | 'white' | 'black';
 
@@ -62,7 +63,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 className={`
                   relative w-20 h-20 rounded overflow-hidden
                   ring-2 transition
-                  ${active === src ? 'ring-yellow-400' : 'ring-transparent'}
+                  ${active === src ? 'ring-[#D4AF37]' : 'ring-transparent'}
                 `}
               >
                 <Image
@@ -77,7 +78,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           </div>
         )}
       </div>
-      
+
       {/* details column -------------------------------------------------- */}
       <div className="md:flex-1">
         <h1 className="text-3xl font-semibold uppercase mb-2">{product.name}</h1>

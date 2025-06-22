@@ -7,7 +7,7 @@ import CartSidebar from './components/CartSidebar'
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-black text-white">
+      <body className="antialiased bg-[#2C2C2E] text-white">
         <CartProvider>
           <Navigation />
           {children}

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link  from 'next/link';
 import { imagePath } from '@/lib/imagePath';
+import { BrandColors } from '@/app/data/products';
 
 export default function Hero() {
   const heroImages = [
@@ -37,13 +38,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+        <h1 className="text-[#F5F3EF] text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
           Brand New Collection
         </h1>
-        <p className="text-white text-xl sm:text-2xl mb-8">Spring-Summer 2026</p>
+        <p className="text-[#F5F3EF] text-xl sm:text-2xl mb-8">Spring-Summer 2026</p>
         <Link
           href="/products"
-          className="bg-black text-white text-lg px-6 py-3 rounded-md transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
+          className="bg-[#1C1C1E] text-[#F5F3EF] text-xl px-10 py-4 transition-colors duration-500 hover:bg-[#D4AF37] hover:text-black"
         >
           Shop Now
         </Link>

@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import Image               from 'next/image'
 import { useCart }         from '@/app/context/CartContext'
 import { imagePath } from '@/lib/imagePath';
+import { BrandColors } from '@/app/data/products';
 
 export default function CartSidebar() {
   const { isOpen, closeCart, items, updateQty, removeItem, total } = useCart()
@@ -25,7 +26,7 @@ export default function CartSidebar() {
       />
 
       {/* sidebar */}
-      <aside className="fixed right-0 top-0 h-full w-80 bg-white z-50 flex flex-col">
+      <aside className="fixed right-0 top-0 h-full w-80 bg-[#F5F3EF] z-50 flex flex-col">
         {/* header */}
         <header className="flex items-center justify-between px-6 py-4 border-b">
           <h2 className="text-lg font-bold uppercase tracking-wider text-black">
@@ -69,7 +70,8 @@ export default function CartSidebar() {
 
                   {item.color && (
                     <p className="text-sm mt-1 text-black">
-                      Color: {item.color}
+                      Color:{' '}
+                      {item.color.charAt(0).toUpperCase() + item.color.slice(1)}
                     </p>
                   )}
                   {item.size && (

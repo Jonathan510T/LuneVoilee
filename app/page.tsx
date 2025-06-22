@@ -33,7 +33,7 @@ export default async function HomePage() {
       <Hero />
 
       {/* ------------- Category tiles ------------------------- */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#1C1C1E]">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <Tile
@@ -57,9 +57,9 @@ export default async function HomePage() {
       </section>
 
       {/* ------------- Gallery section ------------------------ */}
-      <section className="py-16 bg-neutral-100">
+      <section className="py-16 bg-[#E0DCD5]">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-black">
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-[#2C2C2E]">
             Follow us on Instagram&nbsp;
             <span className="text-yellow-600">@LuneVoilee</span>
           </h2>
@@ -89,10 +89,10 @@ function Tile({ href, title, src }: { href: string; title: string; src: string }
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
       <div className="absolute bottom-6 left-6">
-        <h3 className="text-white text-3xl font-semibold mb-4">{title}</h3>
+        <h3 className="text-[#F5F3EF] text-3xl font-semibold mb-4">{title}</h3>
         <Link
           href={href}
-          className="bg-black text-white text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-yellow-500 hover:text-black"
+          className="bg-[#2C2C2E] text-[#F5F3EF] text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-[#D4AF37] hover:text-black"
         >
           View Products
         </Link>

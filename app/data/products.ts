@@ -1,3 +1,14 @@
+export const BrandColors = {
+  LVBLACK: '#1C1C1E',   // primary dark
+  LVGOLD:     '#D4AF37',   // accent
+  LVCHARCOAL: '#2C2C2E',   // secondary dark
+  LVIVORY:    '#F5F3EF',   // light neutral
+  LVGRAY:     '#A9A9A9',   // neutral gray
+  LVTAUPE:      '#E0DCD5',   // soft taupe
+} as const;
+
+
+
 export type Product = {
   id: string
   name: string

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image        from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'; // npm i lucide-react
 import { imagePath } from '@/lib/imagePath';
+import { BrandColors } from '@/app/data/products';
 type Props = { images: string[] };
 
 export default function Gallery({ images }: Props) {
@@ -61,14 +62,14 @@ export default function Gallery({ images }: Props) {
             <button
               onClick={prev}
               aria-label="Previous"
-              className="bg-white rounded-full p-3 hover:bg-yellow-400 transition text-black"
+              className="bg-white rounded-full p-3 hover:bg-[#D4AF37] transition text-black"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={next}
               aria-label="Next"
-              className="bg-white rounded-full p-3 hover:bg-yellow-400 transition text-black"
+              className="bg-white rounded-full p-3 hover:bg-[#D4AF37] transition text-black"
             >
               <ChevronRight size={24} />
             </button>

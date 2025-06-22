@@ -62,7 +62,7 @@ export default function ProductCard({ product, categoryColor }: Props) {
         <p className="text-sm">${product.price.toFixed(2)}</p>
 
         <Link href={`/products/${product.category}/${product.id}`}>
-          <button className="mt-4 px-5 py-2 bg-white text-black font-medium rounded transition-colors duration-300 hover:bg-yellow-500">
+          <button className="mt-4 px-5 py-2 bg-[#F5F3EF] text-black font-medium rounded transition-colors duration-300 hover:bg-[#D4AF37]">
             Buy Now
           </button>
         </Link>

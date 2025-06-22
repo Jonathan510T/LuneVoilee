@@ -1,48 +1,42 @@
 // app/components/Navigation.tsx
-'use client'
+'use client';
 
-import React, { FC, useState, useRef, useEffect } from 'react'
-import Link                                       from 'next/link'
-import 'boxicons/css/boxicons.min.css'
-import { useCart }                                from '@/app/context/CartContext'
-import { categories }                             from '@/app/data/products'
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import 'boxicons/css/boxicons.min.css';
+import { useCart } from '@/app/context/CartContext';
+import { categories } from '@/app/data/products';
 
-const Navigation: FC = () => {
-  const [isProductsOpen, setIsProductsOpen] = useState(false)
-  const dropdownRef                           = useRef<HTMLDivElement>(null)
-  const { openCart }                          = useCart()
+export default function Navigation() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const { openCart } = useCart();
 
-  /* --- close dropdown when clicking outside --- */
+  /* close dropdown when clicking outside */
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsProductsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    const handle = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
+  }, []);
 
-  /* menu items: first "All Products", then every category except 'pants' */
-  const menuCategories = categories.filter(c => c.slug !== 'pants')
+  const menuCategories = categories.filter(c => c.slug !== 'pants');
 
   return (
-    <nav className="fixed w-full top-0 left-0 z-50 bg-black text-white">
+    <nav className="fixed inset-x-0 top-0 z-50 text-2xl text-[#F5F3EF] bg-transparent">
       {/* announcement bar */}
-      <div className="text-center text-xs text-yellow-500 py-1">
+      <div className="text-center text-[#D4AF37] py-3 bg-[#1C1C1E] text-xl">
         Due to high demand, checkout times may be delayed
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center px-4 py-3">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center px-4 py-5">
         {/* logo */}
         <Link href="/" className="flex items-center">
-          <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center">
-            <span className="font-bold text-lg">
-              <span className="text-white">L</span>
-              <span className="text-yellow-500">V</span>
+          <div className="w-12 h-12 rounded-full border-2 border-[#F5F3EF] flex items-center justify-center">
+            <span className="font-bold">
+              <span className="text-[#F5F3EF]">L</span>
+              <span className="text-[#D4AF37]">V</span>
             </span>
           </div>
         </Link>
@@ -51,57 +45,40 @@ const Navigation: FC = () => {
         <div className="text-center">
           <Link
             href="/"
-            className="text-white text-sm uppercase tracking-widest border-b-2 border-white"
+            className="uppercase tracking-widest border-b-2 border-[#F5F3EF]"
           >
             Lune Voilee
           </Link>
         </div>
 
-        {/* right controls */}
-        <div className="flex justify-end items-center space-x-4">
+        {/* right-hand controls */}
+        <div className="flex justify-end items-center space-x-6">
           {/* products dropdown */}
-          <div ref={dropdownRef} className="relative">
+          <div ref={ref} className="relative">
             <button
-              onClick={() => setIsProductsOpen(o => !o)}
-              className="flex items-center space-x-1"
+              onClick={() => setOpen(o => !o)}
+              className="flex items-center space-x-2"
             >
               <span>Products</span>
-              <i
-                className={`bx text-lg transition-transform ${
-                  isProductsOpen ? 'bx-chevron-up' : 'bx-chevron-down'
-                }`}
-              />
+              {/* icons inherit text-2xl from parent */}
+              <i className={`bx transition-transform ${open ? 'bx-chevron-up' : 'bx-chevron-down'}`} />
             </button>
 
-            {isProductsOpen && (
-              <div
-                className="
-                  absolute right-0 mt-2 w-48 bg-black text-white
-                  rounded-md shadow-lg border border-white/10
-                "
-              >
-                {/* All products link */}
+            {open && (
+              <div className="absolute right-0 mt-3 w-56 bg-[#1C1C1E] text-[#F5F3EF] rounded-md shadow-lg border border-white/10 text-2xl">
                 <Link
                   href="/products"
-                  onClick={() => setIsProductsOpen(false)}
-                  className="
-                    block px-4 py-2 text-sm hover:bg-white/10
-                    transition-colors uppercase tracking-wide
-                  "
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-3 hover:bg-[#D4AF37]/10 uppercase tracking-wide"
                 >
                   All Products
                 </Link>
-
-                {/* categories except pants */}
                 {menuCategories.map(c => (
                   <Link
                     key={c.slug}
                     href={`/products/${c.slug}`}
-                    onClick={() => setIsProductsOpen(false)}
-                    className="
-                      block px-4 py-2 text-sm hover:bg-white/10
-                      transition-colors uppercase tracking-wide
-                    "
+                    onClick={() => setOpen(false)}
+                    className="block px-5 py-3 hover:bg-[#D4AF37]/10 uppercase tracking-wide"
                   >
                     {c.name}
                   </Link>
@@ -110,20 +87,16 @@ const Navigation: FC = () => {
             )}
           </div>
 
-          {/* cart */}
+          {/* cart icon */}
           <button
             onClick={openCart}
             aria-label="Open cart"
-            className="text-white hover:text-white/70"
+            className="hover:text-white/70"
           >
-            <i className="bx bx-cart text-xl" />
+            <i className="bx bx-cart" /> {/* inherits text-2xl */}
           </button>
         </div>
       </div>
     </nav>
-  )
+  );
 }
-
-
-
-export default Navigation

@@ -2,6 +2,7 @@
 import { productsList } from '@/app/data/products';
 import { notFound } from 'next/navigation';
 import ProductDetailClient from './ProductDetailClient';
+import { BrandColors } from '@/app/data/products';
 
 type PageProps = {
   params: Promise<{ category: string; productId: string }>;
@@ -14,7 +15,7 @@ export default async function ProductPage({ params }: PageProps) {
   if (!product) notFound();
 
   return (
-    <div className="bg-black text-white min-h-screen px-6 pt-32 pb-12 md:flex md:items-start md:space-x-12">
+    <div className="bg-[##A9A9A9] text-[#F5F3EF] min-h-screen px-6 pt-32 pb-12 md:flex md:items-start md:space-x-12">
       <ProductDetailClient product={product} />
     </div>
   );

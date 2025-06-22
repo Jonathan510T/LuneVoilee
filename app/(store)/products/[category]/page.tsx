@@ -4,6 +4,7 @@ import Navigation from '@/app/components/Navigation';
 import Footer from '@/app/components/Footer';
 import ProductCard from '@/app/components/ProductCard';
 import Link from 'next/link';
+import { BrandColors } from '@/app/data/products';
 
 type PageProps = {
   params: Promise<{ category: string }>;
@@ -20,10 +21,10 @@ export default async function CategoryPage({ params }: PageProps) {
   const items  = productsList.filter((p) => p.category === slug);
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-[#2C2C2E]">
       <Navigation />
       <main className="flex-grow w-full px-8 sm:px-30 pb-24">
-        <h1 className="text-5xl font-bold pt-24 mb-8 text-center text-white uppercase">
+        <h1 className="text-5xl font-bold pt-24 mb-8 text-center text-[#F5F3EF] uppercase">
           {name}
         </h1>
 
@@ -34,7 +35,7 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/products" className="text-white underline">
+          <Link href="/products" className="text-[#F5F3EF] underline">
             ← Back to All Products
           </Link>
         </div>

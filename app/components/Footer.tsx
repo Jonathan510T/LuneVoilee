@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { FC } from 'react';
+import { BrandColors } from '@/app/data/products';
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-white text-gray-700 py-12">
+    <footer className="bg-[#F5F3EF] text-gray-700 py-12">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Help Column */}
         <div>

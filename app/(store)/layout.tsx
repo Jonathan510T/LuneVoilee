@@ -18,7 +18,6 @@ export default function StoreLayout({ children }: StoreLayoutProps) {
         {/* pt-16 to push content below the fixed nav; adjust as needed */}
         {children}
       </main>
-      <Footer />
     </Providers>
   )
 }

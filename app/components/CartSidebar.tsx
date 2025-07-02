@@ -1,21 +1,30 @@
-// app/components/CartSidebar.tsx
-'use client'
+'use client';
 
-import React, { useEffect } from 'react'
-import Image               from 'next/image'
-import { useCart }         from '@/app/context/CartContext'
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';          // ← NEW
+import { useCart } from '@/app/context/CartContext';
 import { imagePath } from '@/lib/imagePath';
 import { BrandColors } from '@/app/data/products';
 
 export default function CartSidebar() {
-  const { isOpen, closeCart, items, updateQty, removeItem, total } = useCart()
+  const {
+    isOpen,
+    closeCart,
+    items,
+    updateQty,
+    removeItem,
+    total,
+  } = useCart();
+
+  const router = useRouter();                         // ← NEW
 
   // prevent background scroll while sidebar is open
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : ''
-  }, [isOpen])
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }, [isOpen]);
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <>
@@ -46,27 +55,23 @@ export default function CartSidebar() {
           {items.length === 0 ? (
             <p className="text-center text-black">Your cart is empty</p>
           ) : (
-            items.map(item => (
+            items.map((item) => (
               <div
                 key={`${item.id}-${item.color}-${item.size}`}
                 className="flex space-x-4"
               >
                 <Image
-                  
-                  src={imagePath(item.image)} // <-- prepend the single “/” here
+                  src={imagePath(item.image)}
                   alt={item.name}
                   width={80}
                   height={80}
                   className="object-cover rounded"
                 />
-
                 <div className="flex-1">
                   <h3 className="text-sm uppercase tracking-wider text-black">
                     {item.name}
                   </h3>
-                  <p className="mt-1 text-black">
-                    ${item.price.toFixed(2)}
-                  </p>
+                  <p className="mt-1 text-black">${item.price.toFixed(2)}</p>
 
                   {item.color && (
                     <p className="text-sm mt-1 text-black">
@@ -75,16 +80,19 @@ export default function CartSidebar() {
                     </p>
                   )}
                   {item.size && (
-                    <p className="text-sm text-black">
-                      Size: {item.size}
-                    </p>
+                    <p className="text-sm text-black">Size: {item.size}</p>
                   )}
 
                   {/* qty controls */}
                   <div className="mt-2 inline-flex items-center border border-gray-300">
                     <button
                       onClick={() =>
-                        updateQty(item.id, item.quantity - 1, item.color, item.size)
+                        updateQty(
+                          item.id,
+                          item.quantity - 1,
+                          item.color,
+                          item.size,
+                        )
                       }
                       disabled={item.quantity === 1}
                       className="px-3 py-1 text-black"
@@ -94,7 +102,12 @@ export default function CartSidebar() {
                     <span className="px-4 text-black">{item.quantity}</span>
                     <button
                       onClick={() =>
-                        updateQty(item.id, item.quantity + 1, item.color, item.size)
+                        updateQty(
+                          item.id,
+                          item.quantity + 1,
+                          item.color,
+                          item.size,
+                        )
                       }
                       className="px-3 py-1 text-black"
                     >
@@ -122,9 +135,12 @@ export default function CartSidebar() {
               ${total.toFixed(2)}
             </span>
           </div>
+
+          {/* ✔️ navigate to Checkout */}
           <button
             onClick={() => {
-              /* TODO: navigate to checkout page */
+              closeCart();            // hide sidebar
+              router.push('/checkout');
             }}
             className="
               w-full py-3 text-white font-semibold uppercase
@@ -137,5 +153,5 @@ export default function CartSidebar() {
         </footer>
       </aside>
     </>
-  )
+  );
 }

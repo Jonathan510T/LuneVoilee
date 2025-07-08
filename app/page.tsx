@@ -16,15 +16,14 @@ async function getGalleryImages() {
   const dir   = path.join(process.cwd(), 'public', 'images', 'gallery');
   const files = await fs.readdir(dir);                        // ["DSC_1966.JPG", …]
   return files
-    .filter(f => /\.(jpe?g)$/i.test(f))                       // only jpg / jpeg
-    .map(f => `/images/gallery/${f}`);                        // browser path
+    .filter(f => /(jpe?g)$/i.test(f))                       // only jpg / jpeg
+    .map(f => `/images/gallery/${f}`);                      // browser path
 }
 
 /* ------------------------------------------------------------
    Page
    ------------------------------------------------------------ */
 export default async function HomePage() {
-  
   const gallery = await getGalleryImages();                // e.g. 25+ images
 
   return (
@@ -35,19 +34,16 @@ export default async function HomePage() {
       {/* ------------- Category tiles ------------------------- */}
       <section className="py-16 bg-[#1C1C1E]">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-
           <Tile
             href="/products/best-sellers"
             title="Best Sellers"
             src="images/hero/DSC_2029.JPG"
           />
-
           <Tile
             href="/products/hoodies"
             title="Hoodies"
             src="images/gallery/DSC_1998.JPG"
           />
-
           <Tile
             href="/products/shirts"
             title="Shirts"
@@ -69,7 +65,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
@@ -79,24 +74,21 @@ export default async function HomePage() {
    ------------------------------------------------------------ */
 function Tile({ href, title, src }: { href: string; title: string; src: string }) {
   return (
-    <div className="relative overflow-hidden group h-[38.4rem]">
+    <Link href={href} className="relative block overflow-hidden group h-[38.4rem]">
       <Image
         src={src}
         alt={title}
         fill
         sizes="(max-width: 768px) 100vw, 33vw"
-        className="object-cover"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
       <div className="absolute bottom-6 left-6">
         <h3 className="text-[#F5F3EF] text-3xl font-semibold mb-4">{title}</h3>
-        <Link
-          href={href}
-          className="bg-[#2C2C2E] text-[#F5F3EF] text-lg px-6 py-3 rounded transition-colors duration-500 hover:bg-[#D4AF37] hover:text-black"
-        >
+        <span className="inline-block bg-[#2C2C2E] text-[#F5F3EF] text-lg px-6 py-3 rounded transition-colors duration-500 group-hover:bg-[#D4AF37] group-hover:text-black">
           View Products
-        </Link>
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

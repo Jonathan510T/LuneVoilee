@@ -1,4 +1,3 @@
-// app/(store)/products/[category]/[productId]/ProductDetailClient.tsx
 'use client';
 
 import { useState } from 'react';
@@ -6,7 +5,6 @@ import Image        from 'next/image';
 import { useCart }  from '@/app/context/CartContext';
 import type { Product } from '@/app/data/products';
 import { imagePath } from '@/lib/imagePath';
-import { BrandColors } from '@/app/data/products';
 
 type Color = 'green' | 'white' | 'black';
 
@@ -61,10 +59,11 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 key={src}
                 onClick={() => setActive(src)}
                 className={`
-                  relative w-20 h-20 rounded overflow-hidden
+                  relative w-20 h-20 rounded overflow-hidden cursor-pointer
                   ring-2 transition
                   ${active === src ? 'ring-[#D4AF37]' : 'ring-transparent'}
                 `}
+                aria-label="Switch product view"
               >
                 <Image
                   src={imagePath(src)}
@@ -97,7 +96,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 aria-label={c}
                 onClick={() => setColor(c)}
                 className={`
-                  h-8 w-8 rounded-full border-2
+                  h-8 w-8 rounded-full border-2 cursor-pointer
                   ${bgClass[c]}
                   ${color === c
                     ? c === 'white' ? 'border-black' : 'border-white'
@@ -114,7 +113,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           <select
             value={size}
             onChange={e => setSize(e.target.value)}
-            className="w-full bg-transparent border border-gray-600 p-2 text-white"
+            className="w-full bg-transparent border border-gray-600 p-2 text-white cursor-pointer"
           >
             {['Small','Medium','Large','X-Large','XX-Large'].map(s => (
               <option key={s} value={s} className="text-black">{s}</option>
@@ -127,7 +126,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           onClick={handleAdd}
           className="
             w-full py-3 bg-white text-black font-semibold uppercase mb-4
-            transition-colors duration-300 hover:bg-gray-200
+            transition-colors duration-300 hover:bg-gray-200 cursor-pointer
           "
         >
           Add to Cart

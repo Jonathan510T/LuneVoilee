@@ -26,7 +26,7 @@ export default function Navigation() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-transparent">
       {/* announcement bar */}
-      <div className="text-center text-[#D4AF37] py-2 text-sm sm:text-base">
+      <div className="text-center text-[#D4AF37] py-2 text-sm sm:text-base bg-[#1C1C1E]">
         Due to high demand, checkout times may be delayed
       </div>
 

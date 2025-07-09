@@ -113,7 +113,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           <select
             value={size}
             onChange={e => setSize(e.target.value)}
-            className="w-full bg-transparent border border-gray-600 p-2 text-white cursor-pointer"
+            className="w-full bg-transparent border border-gray-600 p-2 pr-10 text-white cursor-pointer"
           >
             {['Small','Medium','Large','X-Large','XX-Large'].map(s => (
               <option key={s} value={s} className="text-black">{s}</option>

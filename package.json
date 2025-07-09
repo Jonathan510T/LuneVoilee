@@ -12,7 +12,9 @@
     "build": "next build",
     "deploy": "npm run build && npx shx touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
+    "export": "next export" ,
     "lint": "next lint"
+    
   },
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.3",

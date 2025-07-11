@@ -1,13 +1,11 @@
-const repo   = 'LuneVoilee';
-const isProd = process.env.NODE_ENV === 'production';
-const prefix = isProd ? `/${repo}` : '';
-
-/** @type {import("next").NextConfig} */
-module.exports = {
-  output:   'export',
-  basePath: prefix,
-  images:   { unoptimized: true },
-  env: {                         // 👈 add this
-    NEXT_PUBLIC_BASE_PATH: prefix,
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export', // <-- THIS enables `next export`
+  images: {
+    unoptimized: true, // Required if you use next/image in static export
   },
+  trailingSlash: true, // Optional: helps ensure all links resolve
 };
+
+module.exports = nextConfig;

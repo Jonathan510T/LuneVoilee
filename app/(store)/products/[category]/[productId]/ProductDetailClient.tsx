@@ -19,7 +19,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
   const [color, setColor]   = useState<Color>('green');
   const [size,  setSize]    = useState('Medium');
-  const [active, setActive] = useState(product.image);  // ⭐ current photo
+  const [active, setActive] = useState(product.image);  
 
   const thumbs = [product.image, product.imageback].filter(Boolean);
 

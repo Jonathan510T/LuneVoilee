@@ -18,10 +18,7 @@ type PageProps = {
 // ——————————————————————————————————————————
 
 export default async function CategoryPage({ params }: PageProps) {
-  /*
-   * `params` comes in as a promise from the Next.js
-   * router — we need to await it first.
-   */
+
   const { category } = await params;
 
   const slug  = category.toLowerCase();
@@ -29,7 +26,7 @@ export default async function CategoryPage({ params }: PageProps) {
   const name  = info?.name  ?? slug;
   const color = info?.color ?? '#fff';
 
-  // 👉 LIMIT the results to the first **three** products only
+
   const items = productsList
     .filter((p) => p.category === slug)
     .slice(0, 3);
@@ -59,10 +56,6 @@ export default async function CategoryPage({ params }: PageProps) {
     </div>
   );
 }
-
-// ——————————————————————————————————————————
-// Static Params for SSG
-// ——————————————————————————————————————————
 
 export function generateStaticParams(): Array<{ category: string }> {
   return categories.map((c) => ({ category: c.slug }));

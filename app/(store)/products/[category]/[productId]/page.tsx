@@ -2,7 +2,7 @@
 import { productsList } from '@/app/data/products';
 import { notFound } from 'next/navigation';
 import ProductDetailClient from './ProductDetailClient';
-import { BrandColors } from '@/app/data/products';
+
 
 type PageProps = {
   params: Promise<{ category: string; productId: string }>;

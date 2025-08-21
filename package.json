@@ -12,11 +12,7 @@
     "build": "next build",
     "deploy": "npm run build && npx shx touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
-<<<<<<< HEAD
     "export": "next export" ,
-=======
-     "export": "next export" ,
->>>>>>> working
     "lint": "next lint"
     
   },

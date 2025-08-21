@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link  from 'next/link';
 import { imagePath } from '@/lib/imagePath';
-import { BrandColors } from '@/app/data/products';
+
 
 export default function Hero() {
   const heroImages = [

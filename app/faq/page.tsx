@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-// Expanded FAQ data to include custom answers for the new Sizing & Care section
+
 const faqData = [
   {
     category: 'Shipping Questions',

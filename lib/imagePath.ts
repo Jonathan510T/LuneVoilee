@@ -1,4 +1,4 @@
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''; // '' in dev, '/LuneVoilee' in prod
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''; 
 
 export function imagePath(src: string): string {
   const cleaned = src.startsWith('/') ? src : `/${src}`;

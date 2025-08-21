@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FC } from 'react';
-import { BrandColors } from '@/app/data/products';
+
 
 const Footer: FC = () => {
   return (

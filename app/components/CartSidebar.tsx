@@ -2,10 +2,10 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';          // ← NEW
+import { useRouter } from 'next/navigation';          
 import { useCart } from '@/app/context/CartContext';
 import { imagePath } from '@/lib/imagePath';
-import { BrandColors } from '@/app/data/products';
+
 
 export default function CartSidebar() {
   const {
@@ -17,7 +17,7 @@ export default function CartSidebar() {
     total,
   } = useCart();
 
-  const router = useRouter();                         // ← NEW
+  const router = useRouter();                        
 
   // prevent background scroll while sidebar is open
   useEffect(() => {
@@ -136,10 +136,10 @@ export default function CartSidebar() {
             </span>
           </div>
 
-          {/* ✔️ navigate to Checkout */}
+        
           <button
             onClick={() => {
-              closeCart();            // hide sidebar
+              closeCart();            
               router.push('/checkout');
             }}
             className="

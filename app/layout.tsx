@@ -5,7 +5,7 @@ import { CartProvider } from './context/CartContext';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import CartSidebar from './components/CartSidebar';
-import PayPalLoader from './components/PayPalLoader';   // ← NEW
+import PayPalLoader from './components/PayPalLoader';   
 
 export default function RootLayout({
   children,
@@ -17,14 +17,14 @@ export default function RootLayout({
       <body className="antialiased bg-[#2C2C2E] text-white">
         {/* Provide cart state to the entire app */}
         <CartProvider>
-          {/* Inject the PayPal / Venmo SDK once */}
-          <PayPalLoader />                             {/* ← NEW */}
+       
+          <PayPalLoader />                           
 
           <Navigation />
 
           {children}
 
-          <Footer />                                   {/* ← moved inside provider */}
+          <Footer />                                   
 
           {/* Cart drawer stays mounted so it can open from anywhere */}
           <CartSidebar />

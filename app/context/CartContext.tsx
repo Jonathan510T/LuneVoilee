@@ -101,7 +101,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     <CartContext.Provider
       value={{
         items,
-        addItem,      // ← addItem is back!
+        addItem,      
         removeItem,
         updateQty,
         clearCart,
@@ -116,7 +116,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   )
 }
 
-/* ---------- hook ---------- */
+
 
 export function useCart() {
   const ctx = useContext(CartContext)

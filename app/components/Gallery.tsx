@@ -3,9 +3,9 @@
 
 import { useState } from 'react';
 import Image        from 'next/image';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'; // npm i lucide-react
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'; 
 import { imagePath } from '@/lib/imagePath';
-import { BrandColors } from '@/app/data/products';
+
 type Props = { images: string[] };
 
 export default function Gallery({ images }: Props) {
